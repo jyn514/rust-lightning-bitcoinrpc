@@ -1,12 +1,7 @@
 struct RPCClient;
 
 use lightning_net_tokio::Connection;
-
-use tokio::sync::mpsc;
-use lightning::ln::{channelmonitor, channelmanager, peer_handler};
-use lightning::chain::keysinterface;
-
-use std::sync::Arc;
+use lightning::ln::channelmonitor;
 
 struct ChannelMonitor;
 impl channelmonitor::ManyChannelMonitor for ChannelMonitor {}

@@ -2,42 +2,12 @@ use base64;
 use hyper;
 use serde_json;
 
-use bitcoin_hashes::sha256d::Hash as Sha256dHash;
-use bitcoin_hashes::hex::FromHex;
-
-use bitcoin::blockdata::block::BlockHeader;
-
 use futures_util::future::TryFutureExt;
 
 use hyper::body::HttpBody;
 
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-#[derive(Deserialize)]
-pub struct GetHeaderResponse {
-	pub hash: String,
-	pub confirmations: u64,
-	pub height: u32,
-	pub version: u32,
-	pub merkleroot: String,
-	pub time: u32,
-	pub nonce: u32,
-	pub bits: String,
-	pub previousblockhash: String,
-}
-
-impl GetHeaderResponse {
-	pub fn to_block_header(&self) -> BlockHeader {
-		BlockHeader {
-			version: self.version,
-			prev_blockhash: Sha256dHash::from_hex(&self.previousblockhash).unwrap(),
-			merkle_root: Sha256dHash::from_hex(&self.merkleroot).unwrap(),
-			time: self.time,
-			bits: self.bits.parse().unwrap(),
-			nonce: self.nonce,
-		}
-	}
-}
 
 pub struct RPCClient {
 	basic_auth: String,

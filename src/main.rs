@@ -1,6 +1,3 @@
-#[macro_use]
-extern crate serde_derive;
-
 mod rpc_client;
 use rpc_client::*;
 
@@ -14,39 +11,32 @@ use lightning_net_tokio::Connection;
 
 use tokio::io::AsyncBufReadExt;
 use tokio::sync::mpsc;
-use tokio::time::Instant;
 
 use secp256k1::key::PublicKey;
 use secp256k1::Secp256k1;
 
-use rand::{thread_rng, Rng};
+use rand::Rng;
 
 use lightning::chain;
 use lightning::chain::chaininterface;
-use lightning::chain::keysinterface::{KeysInterface, KeysManager, SpendableOutputDescriptor};
+use lightning::chain::keysinterface::{KeysInterface, KeysManager};
 use lightning::ln::{peer_handler, router, channelmanager, channelmonitor};
-use lightning::ln::channelmonitor::ManyChannelMonitor;
 use lightning::ln::channelmanager::{PaymentHash, PaymentPreimage};
-use lightning::util::events::{Event, EventsProvider};
 use lightning::util::logger::{Logger, Record};
-use lightning::util::ser::{ReadableArgs, Writeable};
+use lightning::util::ser::ReadableArgs;
 use lightning::util::config;
 
-use bitcoin::util::{bip32, bip143};
+use bitcoin::util::bip32;
 use bitcoin::blockdata;
 use bitcoin::network::constants;
-use bitcoin::consensus::encode;
 
-use bitcoin_hashes::Hash;
 use bitcoin_hashes::sha256d::Hash as Sha256dHash;
-use bitcoin_hashes::hex::{ToHex, FromHex};
 
 use std::env;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use std::vec::Vec;
 use std::time::{Duration, SystemTime};
-use std::io::{Cursor, Write};
 use std::fs;
 
 const FEE_PROPORTIONAL_MILLIONTHS: u32 = 10;

@@ -1,14 +1,12 @@
 use tokio::io::{WriteHalf, AsyncWriteExt, Sink};
 
-use std::sync::Mutex;
-
-pub struct Connection {
+struct Connection {
     writer: WriteHalf<Sink>,
 }
 
-impl Connection {
-    pub async fn setup_outbound() {
-        let us: Mutex<Self> = unimplemented!();
-        us.lock().unwrap().writer.write_all(b"").await;
-    }
+pub async fn setup_outbound() {
+    use std::sync::Mutex;
+
+    let us: Mutex<Connection> = unimplemented!();
+    us.lock().unwrap().writer.write_all(b"").await;
 }

@@ -1,10 +1,11 @@
 struct RPCClient;
 
 use lightning_net_tokio::Connection;
-use lightning::ln::channelmonitor;
+
+pub trait T: Send + Sync {}
 
 struct ChannelMonitor;
-impl channelmonitor::ManyChannelMonitor for ChannelMonitor {}
+impl T for ChannelMonitor {}
 
 #[tokio::main]
 async fn main() {

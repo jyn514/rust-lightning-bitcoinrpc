@@ -9,9 +9,8 @@ edition = "2018"
 bitcoin = "0.21"
 bitcoin-bech32 = "0.7"
 bitcoin_hashes = "0.7"
-lightning = { path = "rust-lightning/lightning" }
-lightning-net-tokio = { path = "rust-lightning/lightning-net-tokio" }
 lightning-invoice = { git = "https://github.com/rust-bitcoin/rust-lightning-invoice", rev = "e738b463d041eb6236997c5f78fd1bc1c612af27" }
+lightning-net-tokio = { "path" = "./net" }
 secp256k1 = "0.15"
 hyper = "0.13"
 serde = "1"

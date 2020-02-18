@@ -278,15 +278,6 @@ version = "0.2.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "lightning"
-version = "0.0.10"
-dependencies = [
- "bitcoin 0.21.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "bitcoin_hashes 0.7.4 (registry+https://github.com/rust-lang/crates.io-index)",
- "secp256k1 0.15.5 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
 name = "lightning-invoice"
 version = "0.2.0"
 source = "git+https://github.com/rust-bitcoin/rust-lightning-invoice?rev=e738b463d041eb6236997c5f78fd1bc1c612af27#e738b463d041eb6236997c5f78fd1bc1c612af27"
@@ -303,7 +294,6 @@ version = "0.0.3"
 dependencies = [
  "bitcoin 0.21.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "bitcoin_hashes 0.7.4 (registry+https://github.com/rust-lang/crates.io-index)",
- "lightning 0.0.10",
  "secp256k1 0.15.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio 0.2.11 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -568,7 +558,6 @@ dependencies = [
  "cc 1.0.41 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures-util 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "hyper 0.13.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "lightning 0.0.10",
  "lightning-invoice 0.2.0 (git+https://github.com/rust-bitcoin/rust-lightning-invoice?rev=e738b463d041eb6236997c5f78fd1bc1c612af27)",
  "lightning-net-tokio 0.0.3",
  "rand 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",

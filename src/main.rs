@@ -6,8 +6,7 @@ use tokio::sync::mpsc;
 use lightning::ln::{channelmonitor, channelmanager, peer_handler};
 use lightning::chain::keysinterface;
 
-use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 
 struct ChannelMonitor;
 impl channelmonitor::ManyChannelMonitor for ChannelMonitor {}

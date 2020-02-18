@@ -1,14 +1,14 @@
-use tokio::net::TcpStream;
-use tokio::io::{self, AsyncWriteExt};
+use tokio::io::{WriteHalf, AsyncWriteExt, Sink};
 
-use std::sync::{Arc, Mutex};
+use std::sync::Mutex;
 
 pub struct Connection {
-	writer: Option<io::WriteHalf<TcpStream>>,
+    writer: WriteHalf<Sink>,
 }
+
 impl Connection {
-	pub async fn setup_outbound() {
-		let us: Arc<Mutex<Self>> = unimplemented!();
-		us.lock().unwrap().writer.as_mut().unwrap().write_all(b"hi").await;
-	}
+    pub async fn setup_outbound() {
+        let us: Mutex<Self> = unimplemented!();
+        us.lock().unwrap().writer.write_all(b"").await;
+    }
 }

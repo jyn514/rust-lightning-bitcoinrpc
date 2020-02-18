@@ -5,4 +5,4 @@ authors = ["Matt Corallo"]
 edition = "2018"
 
 [dependencies]
-tokio = { version = "0.2", features = [ "io-util", "macros", "rt-core", "tcp" ] }
+tokio = { version = "0.2", features = [ "io-util" ] }

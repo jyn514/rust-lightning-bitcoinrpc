@@ -2,8 +2,7 @@
 name = "lightning-net-tokio"
 version = "0.0.3"
 authors = ["Matt Corallo"]
-license = "Apache-2.0"
 edition = "2018"
 
 [dependencies]
-tokio = { version = "0.2", features = [ "io-util", "macros", "rt-core", "sync", "tcp", "time" ] }
+tokio = { version = "0.2", features = [ "io-util", "macros", "rt-core", "tcp" ] }

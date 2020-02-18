@@ -1,5 +1,4 @@
-mod rpc_client;
-use rpc_client::*;
+struct RPCClient;
 
 mod chain_monitor;
 use chain_monitor::*;

@@ -1,4 +1,4 @@
-use crate::rpc_client::*;
+use crate::RPCClient;
 
 use bitcoin::Network;
 use bitcoin_hashes::sha256d::Hash as Sha256dHash;
